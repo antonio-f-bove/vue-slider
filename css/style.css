@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.slider {
+  position: relative;
+
+  margin: 50px auto;
+  width: 80%;
+}
+
+.img-container {
+}
+
+.img-container img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+span.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+
+  background-color: #aaa;
+  border: 1px solid #000;
+  border-radius: 50%;
+
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+}
