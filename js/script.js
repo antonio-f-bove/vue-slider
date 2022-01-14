@@ -11,6 +11,7 @@ new Vue ({
       'https://picsum.photos/id/7/1200/400',
     ],
     currentIndex: 0,
+    isAutoScrolling: null,
   },
   methods: {
     prevPic: function() {
@@ -31,6 +32,11 @@ new Vue ({
     },
     debug: function(e) {
       // console.log(index)
-    }
+    },
+  },
+  mounted() {
+    this.isAutoScrolling = setInterval(() => {
+      this.nextPic();
+    }, 3000)
   }
 })
