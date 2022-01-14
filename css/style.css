@@ -11,9 +11,6 @@
   width: 80%;
 }
 
-.img-container {
-}
-
 .img-container img {
   width: 100%;
   object-fit: contain;
@@ -46,6 +43,12 @@
   content: '\f061';
 }
 
+.dot-container {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
 span.dot {
   display: inline-block;
   width: 12px;
@@ -53,9 +56,5 @@ span.dot {
 
   background-color: #aaa;
   border: 1px solid #000;
-  border-radius: 50%;
-
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
+  border-radius: 50%;  
 }
