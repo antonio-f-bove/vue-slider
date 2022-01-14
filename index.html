@@ -24,7 +24,7 @@
       <div @click="nextPic" class="next button"></div>
 
       <div class="dot-container">
-        <span v-for="(dots, index) in pictures" @click="setIndex" :class="'dot ' + index"></span>
+        <span v-for="(dots, index) in pictures" @click="setDotIndex(index)" class="dot" :class="currentIndex === index ? 'active' : ''"></span>
       </div>
     </div>
 

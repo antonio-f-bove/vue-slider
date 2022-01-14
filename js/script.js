@@ -11,7 +11,6 @@ new Vue ({
       'https://picsum.photos/id/7/1200/400',
     ],
     currentIndex: 0,
-
   },
   methods: {
     prevPic: function() {
@@ -25,12 +24,13 @@ new Vue ({
       this.currentIndex = (this.currentIndex + 1) % this.pictures.length;
       console.log(this.currentIndex)
     },
-    setIndex: function(e) {
-      const classes = e.target.classList;
-      console.log(classes);
-      // this.currentIndex = 
+    setDotIndex: function(index) {
+      // console.log(e)
+      this.currentIndex = index;
+      console.log(this.currentIndex)
+    },
+    debug: function(e) {
+      // console.log(index)
     }
   }
 })
-
-// console.log(currentIndex);
