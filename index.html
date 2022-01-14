@@ -17,14 +17,14 @@
 
     <div class="slider">
       <div class="img-container">
-        <img src="https://picsum.photos/1200/400" alt="">
+        <img :src="pictures[currentIndex]" alt="">
       </div>
 
-      <div class="prev button"></div>
-      <div class="next button"></div>
+      <div @click="prevPic" class="prev button"></div>
+      <div @click="nextPic" class="next button"></div>
 
       <div class="dot-container">
-        <span class="dot"></span>
+        <span v-for="(dots, index) in pictures" @click="setIndex" :class="'dot ' + index"></span>
       </div>
     </div>
 
