@@ -27,9 +27,8 @@
   height: 18px;
   line-height: 18px;
   border-radius: 50%;
-
-  /* background-color: #aaa; */
-  /* opacity: .5; */
+  border: 1px solid #000;
+  color: cornflowerblue;
 }
 .scroll-status::before {
   font-family: "Font Awesome 5 Free";

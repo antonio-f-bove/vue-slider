@@ -10,7 +10,6 @@ new Vue ({
       'https://picsum.photos/id/6/1200/400',
       'https://picsum.photos/id/7/1200/400',
     ],
-    numberOfSlides: 13,
     currentIndex: 0,
     timingTag: null,
     isScrolling: false,
@@ -40,18 +39,18 @@ new Vue ({
       const randNum = Math.floor(Math.random() * 100 + 1);
       return `https://picsum.photos/id/${randNum}/1200/400`;
     },
-    populatePicArray: function() {
+    populatePicArray: function(numberOfSlides) {
       // reset dell'array
       this.pictures = [];
       
-      for(let i = 0; i < this.numberOfSlides; i++) {
+      for(let i = 0; i < numberOfSlides; i++) {
         this.pictures[i] = this.generatePicUrl();
       }
       console.log(this.pictures);
     }
   },
   created() {
-    this.populatePicArray()
+    this.populatePicArray(prompt('How many pics in your slider?'))
   },
   mounted() {
     this.autoScrollOn()
