@@ -15,7 +15,12 @@
   
   <div id="app">
 
-    <div class="slider">
+    <div class="slider"
+      @mouseover="autoScrollOff"
+      @mouseleave="autoScrollOn"
+      >
+      <div class="scroll-status" v-if="!isScrolling"></div>
+
       <div class="img-container">
         <img :src="pictures[currentIndex]" alt="">
       </div>
@@ -24,7 +29,10 @@
       <div @click="nextPic" class="next button"></div>
 
       <div class="dot-container">
-        <span v-for="(dots, index) in pictures" @click="setDotIndex(index)" class="dot" :class="currentIndex === index ? 'active' : ''"></span>
+        <span v-for="(dots, index) in pictures" 
+        @click="currentIndex = index" class="dot" 
+        :class="currentIndex === index ? 'active' : ''"
+        ></span>
       </div>
     </div>
 

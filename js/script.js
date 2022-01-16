@@ -10,8 +10,10 @@ new Vue ({
       'https://picsum.photos/id/6/1200/400',
       'https://picsum.photos/id/7/1200/400',
     ],
+    numberOfSlides: 13,
     currentIndex: 0,
-    isAutoScrolling: null,
+    timingTag: null,
+    isScrolling: false,
   },
   methods: {
     prevPic: function() {
@@ -19,24 +21,39 @@ new Vue ({
       if(this.currentIndex < 0) {
         this.currentIndex = this.pictures.length - 1;
       }
-      console.log(this.currentIndex)
     },
     nextPic: function() {
       this.currentIndex = (this.currentIndex + 1) % this.pictures.length;
-      console.log(this.currentIndex)
     },
-    setDotIndex: function(index) {
-      // console.log(e)
-      this.currentIndex = index;
-      console.log(this.currentIndex)
+    autoScrollOff: function() {
+      clearInterval(this.timingTag);
+      this.isScrolling = false;
+      console.log('stop')
     },
-    debug: function(e) {
-      // console.log(index)
+    autoScrollOn: function() {
+      this.timingTag = setInterval(() => {
+        this.nextPic();
+      }, 3000);
+      this.isScrolling = true;
     },
+    generatePicUrl: function() {
+      const randNum = Math.floor(Math.random() * 100 + 1);
+      return `https://picsum.photos/id/${randNum}/1200/400`;
+    },
+    populatePicArray: function() {
+      // reset dell'array
+      this.pictures = [];
+      
+      for(let i = 0; i < this.numberOfSlides; i++) {
+        this.pictures[i] = this.generatePicUrl();
+      }
+      console.log(this.pictures);
+    }
+  },
+  created() {
+    this.populatePicArray()
   },
   mounted() {
-    this.isAutoScrolling = setInterval(() => {
-      this.nextPic();
-    }, 3000)
+    this.autoScrollOn()
   }
 })
